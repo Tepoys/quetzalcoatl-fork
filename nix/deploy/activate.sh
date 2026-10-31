@@ -110,6 +110,8 @@ printf "Finished harden.sh\n"
 #extract
 tar -xzf /tmp/modules.tar.gz -C /etc/nixos --no-same-owner
 
+cp /var/tmp/fire2term.sh /etc/nixos/custom-modules/firewall/.
+
 # Set root ownership recursively
 chown -R root:root /etc/nixos/custom-modules
 
