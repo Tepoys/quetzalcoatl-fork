@@ -107,5 +107,20 @@ printf "Starting harden.sh\n"
 /var/tmp/harden.sh "$1" 2>&1 | tee /var/tmp/.log/harden.log
 printf "Finished harden.sh\n"
 
+#extract
+tar -xzf /tmp/modules.tar.gz -C /etc/nixos --no-same-owner
+
+# Set root ownership recursively
+chown -R root:root /etc/nixos/custom-modules
+
+# Directories: 755
+find /etc/nixos -type d -exec chmod 755 {} +
+
+# Files: 644
+find /etc/nixos -type f -exec chmod 644 {} +
+
+# Executable scripts: 755, if you execute them directly
+find /etc/nixos/custom-modules -type f -name '*.sh' -exec chmod 700 {} +
+
 printf "Finished activation script\n"
 printf "Check out the baselining scripts standard.sh and specific.sh\n"

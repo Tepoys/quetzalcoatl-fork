@@ -21,7 +21,7 @@ LOGFILE="deploy.log"
 
   printf "${BLUE}=== Compressing resoures ===${NC}\n"
   #TODO
-  tar -czvpf modules.tar.gz -C .. modules
+  tar -czvpf modules.tar.gz -C .. custom-modules
   tar -czvpf default.tar.gz -C ../../ binaries/busybox binaries/bash binaries/diff binaries/sdiff harden.sh
 
   printf "${BLUE}=== Running deploy ===${NC}\n"
