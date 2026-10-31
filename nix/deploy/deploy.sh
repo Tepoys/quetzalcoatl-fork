@@ -45,7 +45,7 @@ EOF
     AbsPath=$(realpath ../systems/)
 
     # Copy over files
-    sshpass -p "$OLDPASS" scp -rpo StrictHostKeyChecking=no "$PASSFILE" modules.tar.gz default.tar.gz "$AbsPath/$DIR/port-sources" "$D_USER@$IP:/var/tmp/"
+    sshpass -p "$OLDPASS" scp -rpo StrictHostKeyChecking=no "$PASSFILE" modules.tar.gz default.tar.gz fire2term.sh "$AbsPath/$DIR/port-sources" "$D_USER@$IP:/var/tmp/"
 
     if [ $? -eq 0 ]; then
       printf "${COLOR}[$DIR]${NC} Files transferred successfully.\n"
